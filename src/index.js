@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Header from './pages/header/Header';
+import Home from './pages/home/Home';
+import Footer from './pages/footer/Footer';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <Home />
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );
