@@ -1,83 +1,143 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import './Home.css';
+// import api from './api';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckSquare, faCoffee, faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUp, faSearch } from '@fortawesome/free-solid-svg-icons'
+
+
 
 library.add(
     faArrowUp
 )
 
-const seta = <FontAwesomeIcon icon={faArrowUp} />
+// function Home() {    
+    
+//     return (
+//         <main>
+//             <form className="main-busca" id="busca">
+//                 <input type="text" id="input-busca" className="main-busca-input" placeholder="Digite sua pesquisa" autofocus />
+//                 <button type="submit" className="main-busca-botao">
+//                     <FontAwesomeIcon icon={faSearch} />
+//                 </button>
+//             </form>
+
+//             <div className="mensagem-erro">
+//                 <p>Digite um texto para pesquisa</p>
+//             </div>
+
+//             <div className="main-inicio-backgound">
+//                 <FontAwesomeIcon icon={faArrowUp} />
+//                 <p>Pesquise algo interessante</p>
+//             </div>
+
+//             <section className="media-posts-container">
+//                 <div className="media-post">
+//                     <div className="media-info">
+
+//                         <div className="media-post-info">
+//                             <div className="img-perfil">
+//                                 {/* <img src="" alt="" class="post-imagem-perfil"> */}
+//                             </div>
+
+//                             <div className="info-usuario">
+//                                 <h3 className="perfil-usuario"></h3>
+//                                 <p className="id-usuario">@</p>
+//                                 <p className="data-usuario"></p>
+//                             </div>
+//                         </div>
+
+//                         <div className="media-mensagem">
+//                             <p className="mensagem"></p>
+
+//                             <div>
+//                                 {/* <img src="" alt="Imagem de Perfil 1"> */}
+//                             </div>
+
+//                             {/* <a class="link" target="_blank"
+//             [href]="'https://twitter.com/' + item.user.screen_name + '/status/' + item.id_str">Visualizar mais no
+//             Twitter
+//           </a> */}
+//                         </div>
+
+//                     </div>
+//                 </div>
+//             </section>
 
 
-function Home() {
-    return (
-        <main>
+//             <div>
+//                 {/* <ng-image-slider [images]="imageObject" #nav  class="slider"></ng-image-slider> */}
+//             </div>
 
-            <form className="main-busca" id="busca">
-                <input type="text" id="input-busca" class="main-busca-input" placeholder="Digite sua pesquisa" autofocus />
-                <button type="submit" class="main-busca-botao">
-                    <i className="fas fa-search" id="img-busca"></i>
-                </button>
-            </form>
+//         </main>
+//     );
 
+// }
 
+// function Api () {
 
-            <div className="mensagem-erro">
-                <p>Digite um texto para pesquisa</p>
-            </div>
+//     const api = { 
+//             apiurl: "https://cors-anywhere.herokuapp.com/api.twitter.com/api.twitter.com/1.1/search/tweets.json?q=from%3ANasa%20OR%20%23nasa",
+//             method: 'GET',
+//             statuses: {
+//               'Content-Type': 'application/json',
+//                Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAPDWDQEAAAAAwhC8wAmvbpYad%2BFYLqXv4ep%2BWrE%3DoghUarbwC9b00RNDR5cK64XIt7qyWTm2j3StEjzaAxeASwfady',
+//                id: ''
+//             }
+//         };
 
+//     }
 
-            <div className="main-inicio-backgound">
-                <FontAwesomeIcon icon={faArrowUp} />
-                <p>Pesquise algo interessante</p>
-            </div>
+export default class Home extends Component{
 
+    state= {
+        statuses: [],
+        
+    }
+    
 
+    async componentDidMount(){
 
-            <section className="media-posts-container">
-                <div className="media-post">
-                    <div className="media-info">
+        const api = "https://cors-anywhere.herokuapp.com/api.twitter.com:443/1.1/search/tweets.json?q=from%3APhoto%20OR%20%23photo&count=5";
 
-                        <div className="media-post-info">
-                            <div className="img-perfil">
-                                {/* <img src="" alt="" class="post-imagem-perfil"> */}
-                            </div>
+        const options = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+               Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAPDWDQEAAAAAwhC8wAmvbpYad%2BFYLqXv4ep%2BWrE%3DoghUarbwC9b00RNDR5cK64XIt7qyWTm2j3StEjzaAxeASwfady'
+            }
+        }
 
-                            <div className="info-usuario">
-                                <h3 className="perfil-usuario"></h3>
-                                <p className="id-usuario">@</p>
-                                <p className="data-usuario"></p>
-                            </div>
-                        </div>
+        const res = await fetch (api, options);
+        console.log("Resposta ", res);
 
-                        <div className="media-mensagem">
-                            <p className="mensagem"></p>
+        const body = await res.json();
+        console.log('Body', body);
+        // statuses[1].extended_entities.media[0].media_url
+        // statuses[2].user.profile_image_url
 
-                            <div>
-                                {/* <img src="" alt="Imagem de Perfil 1"> */}
-                            </div>
+        this.setState({statuses: body.statuses})
+        console.log('Teste', body.statuses)
+        // this.setState({tweetImages: body['statuses'][0].user.profile_image_url})
 
-                            {/* <a class="link" target="_blank"
-            [href]="'https://twitter.com/' + item.user.screen_name + '/status/' + item.id_str">Visualizar mais no
-            Twitter
-          </a> */}
-                        </div>
+    }
 
-                    </div>
-                </div>
-            </section>
+    render() {
 
+        const { statuses } = this.state;
 
+        return(
             <div>
-                {/* <ng-image-slider [images]="imageObject" #nav  class="slider"></ng-image-slider> */}
+                {statuses.map(tweet => (
+                    <div key = {tweet.user.id}> 
+                        <h3>Usuário: {tweet.user.name} </h3>
+                        <h3>Seguidores: {tweet.user.followers_count} </h3>
+                        <img src={(tweet.user.profile_image_url)} />
+                    </div>
+                ))}
             </div>
-
-        </main>
-    );
+        );
+    }
 }
-
-export default Home;
