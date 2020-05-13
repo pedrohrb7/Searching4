@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import './Home.css';
 import axios from 'axios';
