@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import './Home.css';
-// import api from './api';
-import Axios from 'axios';
+import axios from 'axios';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faSearch } from '@fortawesome/free-solid-svg-icons'
 
@@ -91,51 +91,71 @@ library.add(
 
 export default class Home extends Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
+    
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+    
+      handleChange(event) {
+        this.setState({value: event.target.value});
+      }
+    
+      handleSubmit(event) {
+        var busca =  this.state.value;
+        console.log('Busca', busca);
+        this.pesquisar();
+        event.preventDefault();
+      }
+
     state= {
-        statuses: [],
-        
+        tweets: []
     }
     
 
-    async componentDidMount(){
+    pesquisar = async () => {
 
-        const api = "https://cors-anywhere.herokuapp.com/api.twitter.com:443/1.1/search/tweets.json?q=from%3APhoto%20OR%20%23photo&count=5";
-
-        const options = {
+        const api = axios.create({
+            baseURL: 'https://cors-anywhere.herokuapp.com/api.twitter.com:443/1.1/search/tweets.json?count=3&q=',
             method: 'GET',
             headers: {
-              'Content-Type': 'application/json',
-               Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAPDWDQEAAAAAwhC8wAmvbpYad%2BFYLqXv4ep%2BWrE%3DoghUarbwC9b00RNDR5cK64XIt7qyWTm2j3StEjzaAxeASwfady'
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAPDWDQEAAAAAwhC8wAmvbpYad%2BFYLqXv4ep%2BWrE%3DoghUarbwC9b00RNDR5cK64XIt7qyWTm2j3StEjzaAxeASwfady'
             }
-        }
+        });
+        const res = await api.get(this.state.value);
 
-        const res = await fetch (api, options);
-        console.log("Resposta ", res);
-
-        const body = await res.json();
-        console.log('Body', body);
-        // statuses[1].extended_entities.media[0].media_url
-        // statuses[2].user.profile_image_url
-
-        this.setState({statuses: body.statuses})
-        console.log('Teste', body.statuses)
-        // this.setState({tweetImages: body['statuses'][0].user.profile_image_url})
+        this.setState({tweets: res.data.statuses});
+        console.log('Statuses', this.state.tweets);
 
     }
 
     render() {
 
-        //const { statuses } = this.state;
+        const { tweets } = this.state;
 
         return(
             <div>
-                {this.state.statuses.map(tweet => (
-                    <div key = {tweet.user.id}> 
+                <form className="main-busca" id="busca" onSubmit={this.handleSubmit}>
+                    <input type="text" id="input-busca" className="main-busca-input" placeholder="Digite sua pesquisa" value={this.state.value} onChange={this.handleChange}/>
+                    <button type="submit" className="main-busca-botao">
+                        <FontAwesomeIcon icon={faSearch} />
+                    </button>
+                </form>
+
+                {/* Porque? */}
+                {tweets && tweets.map(tweet => (
+                    <div key = {tweet.user.id}>
                         <h3>Usuário: {tweet.user.name} </h3>
                         <h3>Seguidores: {tweet.user.followers_count} </h3>
                         <img src={(tweet.user.profile_image_url)} />
+                        <h3>Twitter: {tweet.text} </h3>
+                        <h3>Imagens:</h3>                                           
                     </div>
                 ))}
+
             </div>
         );
     }
