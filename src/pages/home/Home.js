@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import './Home.css';
 // import api from './api';
-
+import Axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faSearch } from '@fortawesome/free-solid-svg-icons'
 
@@ -126,11 +125,11 @@ export default class Home extends Component{
 
     render() {
 
-        const { statuses } = this.state;
+        //const { statuses } = this.state;
 
         return(
             <div>
-                {statuses.map(tweet => (
+                {this.state.statuses.map(tweet => (
                     <div key = {tweet.user.id}> 
                         <h3>Usuário: {tweet.user.name} </h3>
                         <h3>Seguidores: {tweet.user.followers_count} </h3>
