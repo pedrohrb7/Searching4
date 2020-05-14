@@ -293,7 +293,7 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
   
-  .redes-sociais i {
+  /* .redes-sociais i {
     font-size: 3rem;
     color: #334459;
     transition: color .5s;
@@ -301,7 +301,7 @@
   
   .redes-sociais i:hover {
     color: #F67A56;
-  }
+  } */
   
   @media screen and (min-width: 700px) {
     .equipe-container {
@@ -372,12 +372,11 @@
       margin-top: 1.5rem;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
-    .redes-sociais i {
+    /* .redes-sociais i {
       font-size: 3rem;
       color: #334459;
       transition: color .5s;
-    }
-  }
+    } */
   
   @media screen and (max-width: 768px) {
     .container {
@@ -449,3 +448,4 @@
       margin-top: 330px;
     }
   }
+}
