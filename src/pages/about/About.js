@@ -340,3 +340,157 @@ export default class About extends Component {
 		);
 	}
 }
+library.add(
+    faGithub,
+    faLinkedin,
+    faEnvelope
+);
+
+export default class About extends Component {
+
+    // isMobile = false;
+    // getIsMobile()  boolean {
+    //   const w = document.documentElement.clientWidth;
+    //   const breakpoint = 1024;
+    //   console.log(w);
+    //   if (w <= breakpoint) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // }
+   
+    render () {
+
+        return (
+            <div className="estilo-geral">
+                {/*Texto de apresentação da equipe e do projeto*/}
+                <div className="texto-sobre"> 
+                    <div className="container-sobre">
+                        <div className="explicação-proj">                            
+                            <h1>Sobre</h1>
+                            <p>Somos a <strong>4-Front!</strong></p>
+                            <p>Uma equipe formada por quatro desenvolvedores que estão em busca de novos conhecimentos
+                            e desafios profissionais. Cada integrante tem suas habilidades e áreas de especialidade, e unidos formamos um time
+                            capacitado para desenvolvimento web completo. Nossos projetos priorizam a responsividade e a qualidade de interação
+                            para que seu site seja acessível nos diferentes dispositivos de seus usuários. Nossos serviços contemplam desde o 
+                            design da interface até toda a programação Front-End. Fazemos aplicação de HTML, CSS e JavaScript puros, ou 
+                            com os frameworks Angular e React.                            
+                            </p>
+                            <p><strong>Este site é resultado de um dos projetos da Capacitação em Front-end da Cocreare Academy, que teve como
+                                objetivo o desenvolvimento de um site responsivo integrado com a API da rede social Twitter.
+                            </strong></p>
+                        </div>
+
+                        <div className="img-sobre">
+                            <img src={Computerimg}/>
+                        </div>
+                    </div>
+                </div>
+
+        
+                {/* Espaço reservado o bloco de "cards" */}
+                <div className= "equipe" id="equipe">
+                    <h1 className="título"> Nossa Equipe</h1>
+                    <div className="container">
+                        <div className="menu" id="menu-perfil">
+                            <div className="mini-card">
+                                    <img src={Mirela} alt="imagem perfil Mirela" className="img-perfil-icone"/>
+                                    <p>Mirela De Giuli</p>
+                                    <a className="btn" onClick="">Saiba mais</a>
+                            </div>
+                            
+                            <div className="mini-card">
+                                <div>
+                                    <img src={Pedro} alt="imagem perfil Pedro" className="img-perfil-icone"/>
+                                    <p>Pedro H. Borges</p>
+                                    <a className="btn" onClick= "escolhePessoa('pedro')">Saiba mais</a>
+                                </div>
+                            </div>
+
+                            <div className="mini-card">
+                                <div>
+                                    <img src={Rafael} alt="imagem perfil Rafael" className="img-perfil-icone"/>
+                                    <p>Rafael Rodrigues</p>
+                                    <a className="btn" onClick= "escolhePessoa('rafael')">Saiba mais</a>
+                                </div>
+                            </div>
+
+                            <div className="mini-card">
+                                <div>
+                                    <img src={Thiago} alt="imagem perfil Thiago" className="img-perfil-icone"/>
+                                    <p>Thiago Dutra</p>
+                                    <a className="btn" onClick= "escolhePessoa('thiago')">Saiba mais</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="equipe-conteudo" id="equipe_conteudo">
+
+                            <div id="mirela" if= "pessoa == 'mirela' || isMobile == true">
+                                <div className="card">
+                                    <img src={BackgroundCard} alt="background card" className="card-img"/>
+                                    <img src={Mirela} alt="imagem perfil mirela" className="img-perfil-sobre"/>
+                                    <h2>Mirela De Giuli</h2>
+                                    <p className="introducao">Sou a Mirela, designer de produto e desenvolvedora front-end Jr, tenho 24 anos e 
+                                    moro em Bauru. Sou apaixonada por livros, café e inovação!</p>
+
+                                    <ul className="redes-sociais">
+                                        <li><a href="https://github.com/mirelagiuli" target="_blank"><FontAwesomeIcon className="style-redes" icon={faGithub}/></a></li>
+                                        <li><a href="mailto:mireladegiuli@gmail.com"><FontAwesomeIcon className="style-redes" icon={faEnvelope}/></a></li>
+                                        <li><a href="https://www.linkedin.com/in/mirela-de-giuli" target="_blank"><FontAwesomeIcon className="style-redes" icon={faLinkedin}/></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="pedro">
+                                <div className="card" if= "pessoa == 'pedro' || isMobile == true">
+                                    <img src={BackgroundCard} alt="background card" className="card-img"/>
+                                    <img src={Pedro} alt="imagem perfil pedro" className="img-perfil-sobre"/>
+                                    <h2>Pedro H. Borges</h2>
+                                    <p className="introducao">Sou Pedro</p>
+
+                                    <ul className="redes-sociais">
+                                        <li><a href="https://github.com/pedrohrb7" target="_blank"><FontAwesomeIcon className="style-redes" icon={faGithub}/></a></li>
+                                        <li><a href="mailto:pedrohenriquer77@hotmail.com"><FontAwesomeIcon className="style-redes" icon={faEnvelope}/></a></li>
+                                        <li><a href="https://www.linkedin.com/in/pedrohrb/" target="_blank"><FontAwesomeIcon className="style-redes" icon={faLinkedin}/></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="rafael" if= "pessoa == 'rafael' || isMobile == true">
+                                <div className="card">
+                                    <img src={BackgroundCard} alt="background card" className="card-img"/>
+                                    <img src={Rafael} alt="imagem perfil rafael" className="img-perfil-sobre"/>
+                                    <h2>Rafael Rodrigues</h2>
+                                    <p className="introducao">Sou Rafael</p>
+
+                                    <ul className="redes-sociais">
+                                        <li><a href="https://github.com/rafael-rodrigues-santos" target="_blank"><FontAwesomeIcon className="style-redes" icon={faGithub}/></a></li>
+                                        <li><a href="mailto:rafaelrodrigues_@outlook.com"><FontAwesomeIcon className="style-redes" icon={faEnvelope}/></a></li>
+                                        <li><a href="https://www.linkedin.com/in/rafael-rodrigues-santos/" target="_blank"><FontAwesomeIcon className="style-redes" icon={faLinkedin}/></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="thiago" if= "pessoa == 'thiago' || isMobile == true">
+                                <div className="card">
+                                    <img src={BackgroundCard} alt="background card" className="card-img"/>
+                                    <img src={Thiago} alt="imagem perfil thiago" className="img-perfil-sobre"/>
+                                    <h2>Thiago Dutra</h2>
+                                    <p className="introducao">Sou Thiago</p>
+
+                                    <ul className="redes-sociais">
+                                        <li><a href="https://github.com/thiagosilvadtr" target="_blank"><FontAwesomeIcon className="style-redes" icon={faGithub}/></a></li>
+                                        <li><a href="mailto:"><FontAwesomeIcon className="style-redes" icon={faEnvelope}/></a></li>
+                                        <li><a href="#" target="_blank"><FontAwesomeIcon className="style-redes" icon={faLinkedin}/></a></li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}

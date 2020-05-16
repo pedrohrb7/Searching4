@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Header.css';
+import Logo from '../../images/searching4-logo.png'
 
 import {
     Link
@@ -11,11 +12,11 @@ function Header() {
         <div className="Header">
             <header className="Header-header">
                 <div className="Header-header-container">
-                    <h1>Searching4</h1>
+                <img src={Logo}></img>
                     <nav className="Header-header-nav">
                         <ul>
-                            <Link to="/"> <li>Início</li> </Link>
-                            <Link to="/about"> <li>Sobre</li> </Link>
+                            <Link className="Header-link" to="/"> <li>Início</li> </Link>
+                            <Link className="Header-link" to="/about"> <li>Sobre</li> </Link>
                         </ul>
                     </nav>
                 </div>
