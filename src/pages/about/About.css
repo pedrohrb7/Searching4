@@ -22,10 +22,7 @@
     text-decoration: none;
   }
   
-  img {
-    display: block;
-    max-width: 100%;
-  }
+
   
   
   /* fonte padrão: font-family: 'Nunito', sans-serif;
@@ -37,10 +34,11 @@
   Textos escuros e rodapé #334459
   */
   
-  /* body {
+  body {
     font-family: 'Nunito', sans-serif;
     background-color: #FFFFFF;
-  } */
+    overflow-x: hidden;
+  }
   
   
   /* Animação do carousel--------------------------------------------------------------------- */
@@ -100,24 +98,30 @@
   } */
   
   /*parte sobre*/
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
   
   .container-sobre {
     display: flex;
     max-width: 80%;
     margin: 0 auto;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
   }
   
   .explicação-proj {
-    max-width: 560px;
-    margin-top: 60px;
+    max-width: 90%;
+    width: 700px;
+    margin: 0 auto;
     line-height: 1.45em;
   }
   
-  .explicação-proj p {
+  /* .explicação-proj p {
     max-width: 560px;
-  }
+  } */
   
   .explicação-proj h1 {
     font-size: 3.5rem;
@@ -136,7 +140,7 @@
   
   .img-sobre {
     max-width: 500px;
-    margin-left: 37px;
+    margin: 0 auto;
   }
   
   
@@ -156,12 +160,7 @@
     padding-bottom: 4rem;
   }
   
-  .explicação-proj {
-    top: 864px;
-    left: 137px;
-    max-width: 557px;
-    height: 333px;
-  }
+
   
   .equipe-conteudo {
     display: flex;
@@ -293,15 +292,15 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
   
-  /* .redes-sociais i {
+  .style-redes {
     font-size: 3rem;
     color: #334459;
     transition: color .5s;
   }
   
-  .redes-sociais i:hover {
+  .style-redes:hover {
     color: #F67A56;
-  } */
+  }
   
   @media screen and (min-width: 700px) {
     .equipe-container {
@@ -430,6 +429,7 @@
   
   @media screen and (max-width: 425px) {
     .img-sobre {
+      border: solid red;
       max-width: 80%;
       margin-top: 210px;
     }

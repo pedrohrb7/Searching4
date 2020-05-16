@@ -1,6 +1,16 @@
-.Header-header {
+  ul {
+    list-style: none;
+    display: flex;
+  }  
+  
+  .Header-header {
     background-color: #F67A56;
     height: 400px;
+  }
+
+  .Header-header img {
+    width: auto;
+    height: 100px;
   }
   
   .Header-header-container {
@@ -14,8 +24,13 @@
   .Header-header-nav {
     margin-left: 200px;
   }
+
+  .Header-link {
+    text-decoration: none;
+    margin: 0 15px;
+  }
   
-  .Header-header a, .header h1, .nav-separador {
+  .Header-header a, .Header h1 {
     font-weight: 700;
     font-size: 2.25em;
     line-height: 50px;
