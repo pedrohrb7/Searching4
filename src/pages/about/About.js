@@ -194,7 +194,7 @@ export default class About extends Component {
 										className="img-perfil-sobre"
 									/>
 									<h2>Pedro H.R. Borges</h2>
-									<p className="introducao">Opa! Sou Pedro, sou desenvolvedor front-end jr e  </p>
+									<p className="introducao">Opa! Sou Pedro, sou desenvolvedor front-end jr e acredito que é de madrugada que o café se transforma nos melhores códigos.</p>
 
 									<ul className="redes-sociais">
 										<li>
