@@ -1,7 +1,6 @@
 import React, { Component, Suspense, lazy } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import "./Home.css";
-import loading from "../../images/loading.gif";
 import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,6 +23,10 @@ export default class Home extends Component {
 
 	handleSubmit(event) {
 		var busca = this.state.value;
+
+		let pesquisa = document.querySelector("div#search");
+		pesquisa.classList.add("fechar");
+
 		console.log("Busca", busca);
 		this.pesquisar();
 		event.preventDefault();
@@ -36,7 +39,7 @@ export default class Home extends Component {
 	pesquisar = async () => {
 		const api = axios.create({
 			baseURL:
-				"https://cors-anywhere.herokuapp.com/api.twitter.com:443/1.1/search/tweets.json?include_entities=true&count=3&q=",
+				"https://cors-anywhere.herokuapp.com/api.twitter.com:443/1.1/search/tweets.json?include_entities=true&count=10&q=",
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -51,16 +54,8 @@ export default class Home extends Component {
 	};
 
 	render() {
+		
 		const { tweets } = this.state;
-
-		const DATE_OPTIONS = {
-			weekday: "short",
-			year: "numeric",
-			month: "short",
-			day: "numeric",
-		};
-
-		const lazying = React.lazy(() => import("../../images/loading.gif"));
 
 		return (
 			<div>
@@ -73,65 +68,57 @@ export default class Home extends Component {
 						value={this.state.value}
 						onChange={this.handleChange}
 					/>
-					<button type="submit" className="main-busca-botao" onClick="searching()">
+					<button type="submit" className="main-busca-botao">
 						<FontAwesomeIcon icon={faSearch} />
 					</button>
 				</form>
 
 				{/* <!-- Mensagem inicial, fica visível antes do conteudo ser pesquisado --> */}
-				{/* <div class="main-inicio-backgound" id="search">
+				<div class="main-inicio-backgound" id="search">
 					<FontAwesomeIcon icon={faArrowUp} />
 					<p>Pesquise algo interessante</p>
-				</div> */}
+				</div>
 
-				<Suspense fallback={<img src={loading} />}>
-					{tweets &&
-						tweets.map((tweet) => (
-							<div className="media-posts-container">
-								<div className="media-post">
-									<div className="media-info">
-										<div className="media-post-info">
-											<div className="img-perfil">
-												<img
-													className="post-imagem-perfil"
-													src={tweet.user.profile_image_url}
-												/>
-											</div>
-
-											<div className="info-usuario">
-												<div key={tweet.user.id}>
-													<h3 className="perfil-usuario">{tweet.user.name}</h3>
-													<p className="id-usuario">
-														@{tweet.user.screen_name}{" "}
-													</p>
-													{/* <p className="data-usuario"> */}
-													{/* {tweet.user.created_at | new Date().toLocaleDateString(DATE_OPTIONS.year)} */}
-													{/* { (new Date()).toLocaleDateString(tweet.user.created_at)} */}
-													{/* </p> */}
-												</div>
-											</div>
+				{tweets &&
+					tweets.map((tweet) => (
+						<div className="media-posts-container">
+							<div className="media-post">
+								<div className="media-info">
+									<div className="media-post-info">
+										<div className="img-perfil">
+											<img
+												className="post-imagem-perfil"
+												src={tweet.user.profile_image_url}
+											/>
 										</div>
 
-										<div className="media-mensagem">
-											<p className="mensagem"> {tweet.text} </p>
-											<a
-												className="link"
-												target="_blank"
-												href={
-													"https://twitter.com/" +
-													tweet.user.screen_name +
-													"/status/" +
-													tweet.id_str
-												}
-											>
-												Visualizar mais no Twitter
-											</a>
+										<div className="info-usuario">
+											<div key={tweet.user.id}>
+												<h3 className="perfil-usuario">{tweet.user.name}</h3>
+												<p className="id-usuario">@{tweet.user.screen_name} </p>
+											</div>
 										</div>
+									</div>
+
+									<div className="media-mensagem">
+										<p className="mensagem"> {tweet.text} </p>
+										<a
+											className="link"
+											target="_blank"
+											href={
+												"https://twitter.com/" +
+												tweet.user.screen_name +
+												"/status/" +
+												tweet.id_str
+											}
+										>
+											Visualizar mais no Twitter
+										</a>
 									</div>
 								</div>
 							</div>
-						))}
-				</Suspense>
+						</div>
+					))}
 			</div>
 		);
 	}
