@@ -36,10 +36,10 @@
     outline: 0;
   } */
 
-  img {
+  /* img {
     width: 200px;
     height: 200px;
-  }
+  } */
   
   .main-busca-botao {
     width: 60px;
@@ -297,6 +297,7 @@
       max-width: 100%;
       width: 100%;
     }
+<<<<<<< HEAD
   } */
 
   .result {
@@ -446,3 +447,6 @@
 
     }
   }
+=======
+  }
+>>>>>>> 848efce27595775278899169906d26454a65e1a5
