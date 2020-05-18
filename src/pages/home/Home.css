@@ -297,7 +297,6 @@
       max-width: 100%;
       width: 100%;
     }
-<<<<<<< HEAD
   } */
 
   .result {
@@ -377,6 +376,7 @@
     max-width: 80%;
     width: 500px;
     height: 400px;
+    margin: 0 auto;
   }
 
   .caption {
@@ -447,6 +447,3 @@
 
     }
   }
-=======
-  }
->>>>>>> 848efce27595775278899169906d26454a65e1a5
