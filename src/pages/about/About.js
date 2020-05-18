@@ -244,7 +244,7 @@ export default class About extends Component {
 										className="img-perfil-sobre"
 									/>
 									<h2>Rafael Rodrigues</h2>
-									<p className="introducao">Sou Rafael</p>
+									<p className="introducao">Oi, sou o Rafael, desenvolvedor front-end entusiasta por tecnologia e inovação. Nos tempos livres curto um bom livro e games. </p>
 
 									<ul className="redes-sociais">
 										<li>
