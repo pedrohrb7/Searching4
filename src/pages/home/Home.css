@@ -1,35 +1,40 @@
 .main-busca {
     background: #FFFFFF;
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     display: flex;
-    height: 50px;
-    padding: 25px 30px;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
     box-shadow: 0px 3px 6px #00000029;
-    border-radius: 48px;
+    border-radius: 40px;
     position: relative;
-    top: -45px;
+    top: -35px;
     z-index: 50;
+    /* border: 1px solid rgb(139, 139, 139); */
   }
   
   .main-busca-input {
-    flex: 9;
+    width: 80%;
     border: none;
+    border-radius: 40px;
+    padding: 0 20px;
     color: #334459;
-    font-size: 2em;
+    font-size: 24px;
     letter-spacing: -1px;
     font-weight: bold;
+    outline: 0;
   }
   
   .main-busca-input::placeholder {
     color: #D6D6D6;
   }
   
-  textarea:focus, input:focus, select:focus {
+  /* textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
-  }
+  } */
 
   img {
     width: 200px;
@@ -37,16 +42,16 @@
   }
   
   .main-busca-botao {
-    flex: 2;
-    background: #F67A56;
+    width: 60px;
+    height: 60px;
+    /* background: #F67A56; */
+    background: none;
     border: none;
-    box-shadow: 0px 3px 6px #00000029;
-    border-radius: 23px;
-    padding-top: 5px;
+    border-radius: 100px;
   }
   
   .main-busca-botao:hover {
-    background: #334459;
+    background: #f0f0f0;
     transition: all 0.4s ease;
   }
   
@@ -55,9 +60,10 @@
   }
   
   .fa-search {
-    color: #FFFFFF;
-    font-size: 1.25em;
+    color: #F67A56;
+    font-size: 1.50em;
   }
+
   
   /* ----------------------------------------------------------------------------------------------------------
   Mensagem de erro que aparecerá quando o usuário tentar pesquisar sem digitar texto
@@ -112,7 +118,7 @@
     line-height: 5em;
   }
   
-  .media-posts-container {
+  /* .media-posts-container {
     margin-bottom: 100px;
   }
   
@@ -178,8 +184,8 @@
   
   .mensagem {
     width: 100%;
-  }
-  
+  } */
+/*   
   @media only screen and (min-width: 426px) {
     .media-mensagem {
       margin-left: 70px;
@@ -220,11 +226,13 @@
   
   .gallery img:hover {
     transform: scale(1.1);
-  }
+  } */
+
+ 
   
-  @media only screen and (max-width: 1300px) {
+  /* @media only screen and (max-width: 1300px) {
     .main-busca {
-      max-width: 70%;
+      max-width: 80%;
       padding: 17px;
       height: 80px;
     }
@@ -288,5 +296,153 @@
     .main-busca {
       max-width: 100%;
       width: 100%;
+    }
+  } */
+
+  .result {
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+  }
+
+  .result__post {
+    border: 1px solid rgb(190, 187, 187);
+    border-radius: 10px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px 0;
+    display: flex;
+  }
+
+  .result__post-img {
+    width: 10%;
+    margin-right: 10px;
+  }
+  .result__post-img img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+  }
+
+  .result__post-content {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+  .result__post-content h2{
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .result__post-content h4{
+    margin: 0;
+    font-size: 16px;
+    color: rgb(149, 149, 149);
+  }
+  .result__post-content p{
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .carousel {
+    /* display: none; */
+    max-width: 90%;
+    width: 650px;
+    height: 400px;
+    margin: 20px auto;
+    background-color: #000;
+    box-shadow: 0 0 10px 2px rgb(90, 90, 90);
+  }
+
+  .carousel-hide {
+    display: none;
+  }
+
+  /* .imagens {
+    width: 500px;
+    height: 400px;
+    border: solid red;
+    background-color: black;
+  } */
+
+  .imagens img {
+    max-width: 80%;
+    width: 500px;
+    height: 400px;
+  }
+
+  .caption {
+    /* border: solid red; */
+    background: #000;
+    opacity: 80%;
+    position: relative;
+    left: 0;
+    top: -70px;
+    height: 70px;
+    padding: 10px 0 10px 0;
+  }
+
+  .caption h3 {
+    font-size: 18px;
+    position: relative;
+    top: 0;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .main-busca {
+      width: 50%;
+    }
+    
+    .result {
+      width: 80%;
+    }
+
+    .result__post {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .main-busca {
+      width: 70%;
+    }
+    .result {
+      width: 90%;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .main-busca {
+      width: 80%;
+    }
+    .result {
+      width: 95%;
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    .main-busca {
+      min-width: 80%;
+    }
+    .result {
+      min-width: 540px;
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    .main-busca {
+      min-width: 100%;
+    }
+    .result {
+      width: 100%;
+      margin: 0 20px;
+
     }
   }

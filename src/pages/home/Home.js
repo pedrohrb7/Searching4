@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import { Carousel } from 'react-bootstrap';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import './Home.css';
 import axios from 'axios';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faSearch } from '@fortawesome/free-solid-svg-icons'
+// import apiImages from 'apiImages'
+// import api from './api';
+import BuscaImagem from './buscaImagem';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp, faSearch, faGrinTongue } from '@fortawesome/free-solid-svg-icons'
 
 
 library.add(
@@ -76,20 +80,6 @@ library.add(
 
 // }
 
-// function Api () {
-
-//     const api = { 
-//             apiurl: "https://cors-anywhere.herokuapp.com/api.twitter.com/api.twitter.com/1.1/search/tweets.json?q=from%3ANasa%20OR%20%23nasa",
-//             method: 'GET',
-//             statuses: {
-//               'Content-Type': 'application/json',
-//                Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAPDWDQEAAAAAwhC8wAmvbpYad%2BFYLqXv4ep%2BWrE%3DoghUarbwC9b00RNDR5cK64XIt7qyWTm2j3StEjzaAxeASwfady',
-//                id: ''
-//             }
-//         };
-
-//     }
-
 export default class Home extends Component{
 
     constructor(props) {
@@ -107,19 +97,28 @@ export default class Home extends Component{
       handleSubmit(event) {
         var busca =  this.state.value;
         console.log('Busca', busca);
+        this.tweetTexto = [];
+        this.imageObject= [];
         this.pesquisar();
         event.preventDefault();
+        this.imagemCarousel();
       }
 
     state= {
-        tweets: []
+        tweets: [],
+        tweetImages: []
     }
+
+    imageObject= [];
+    tweetTexto= [];
+
     
+
 
     pesquisar = async () => {
 
         const api = axios.create({
-            baseURL: 'https://cors-anywhere.herokuapp.com/api.twitter.com:443/1.1/search/tweets.json?count=3&q=',
+            baseURL: 'https://cors-anywhere.herokuapp.com/api.twitter.com:443/1.1/search/tweets.json?include_entities=true&count=100&q=',
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -129,14 +128,65 @@ export default class Home extends Component{
         const res = await api.get(this.state.value);
 
         this.setState({tweets: res.data.statuses});
-        console.log('Statuses', this.state.tweets);
+        // this.setState({tweetMedia: this.state.tweets.});
+        this.setState({tweetMedia: this.state.tweets.map(entidade =>  (entidade.entities))});
+        // this.setState({tweetImages: this.state.tweetMedia.map( image => (image) )});
 
+
+        console.log('Statuses', this.state.tweets);
+        console.log('tweetMedia', this.state.tweetMedia);
+        // console.log('tweetImages', this.state.tweetImages);
     }
+
+    imagemCarousel = () => {
+        const carousel = document.querySelector('.carousel');
+        return carousel.classList.remove ('carousel-hide');
+    }
+
 
     render() {
 
         const { tweets } = this.state;
 
+
+            ( tweets && tweets.map(tweet => 
+                {
+                    if (tweet.entities.media && this.imageObject.length < 10){
+                        this.imageObject.push({
+                            image: tweet.entities.media[0].media_url,
+                            title: tweet.user.screen_name
+                        })
+                    }                    
+                }
+            ));
+
+            ( tweets && tweets.map(tweet => 
+                {
+                    if (tweet.user.id && this.tweetTexto.length < 10){
+                        this.tweetTexto.push({
+                            name: tweet.user.name,
+                            screen_name: tweet.user.screen_name,
+                            profile_image: tweet.user.profile_image_url_https,
+                            description: tweet.text
+                        })
+                    }
+                    
+                }
+            ));
+            
+            
+
+        
+            // this.imageObject = [( tweets && tweets.map(tweet => (
+            //     <div key = {tweet.user.id}>
+            //         <h3>Usuário: {tweet.user.name} </h3>
+            //         <h3>Seguidores: {tweet.user.followers_count} </h3>
+            //         <img src={(tweet.user.profile_image_url)} />
+            //         <h3>Twitter: {tweet.text} </h3>               
+            // </div>
+            // )))]
+
+        
         return(
             <div>
                 <form className="main-busca" id="busca" onSubmit={this.handleSubmit}>
@@ -146,16 +196,35 @@ export default class Home extends Component{
                     </button>
                 </form>
 
-                {/* Porque? */}
-                {tweets && tweets.map(tweet => (
-                    <div key = {tweet.user.id}>
-                        <h3>Usuário: {tweet.user.name} </h3>
-                        <h3>Seguidores: {tweet.user.followers_count} </h3>
-                        <img src={(tweet.user.profile_image_url)} />
-                        <h3>Twitter: {tweet.text} </h3>
-                        <h3>Imagens:</h3>                                           
-                    </div>
-                ))}
+                
+                <div className="result"> 
+                {this.tweetTexto.map(post => (
+                        <div className="result__post">
+                                <div className="result__post-img">
+                                    <img src={(post.profile_image)} />
+                                </div>
+                                <div className="result__post-content">
+                                    <h2>{post.name}</h2>
+                                    <h4>@{post.screen_name}</h4>
+                                    <p>{post.description}</p>
+                                </div>
+                            
+                        </div>
+                )
+                )}
+                </div>
+
+                <Carousel className="carousel carousel-hide">
+                {this.imageObject.map(foto => (
+                    <Carousel.Item className="imagens">
+                        <img src={(foto.image)} />
+                    <Carousel.Caption className="caption">
+                        <h3>Postado por: @{foto.title}</h3>
+                    </Carousel.Caption>
+                    </Carousel.Item>
+                    )
+                )}
+                </Carousel>
 
             </div>
         );
