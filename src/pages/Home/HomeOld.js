@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "./Home.css";
+import "./HomeOld.js";
 import axios from "axios";
 
 export default class Home extends Component {

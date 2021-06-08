@@ -8,6 +8,6 @@ export default class apiImages extends Component {
   }
 
   render() {
-    return imageTweets;
+   return imageTweets;
   }
 }

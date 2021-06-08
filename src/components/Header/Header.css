@@ -1,29 +1,3 @@
-.content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+@media only screen and (max-width: 375px) {}
 
-.header-logo {
-  width: auto;
-  height: 100px;
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-}
-
-.menu-item,
-a {
-  color: #fff;
-  padding: 5px;
-  margin-top: 25px;
-  font-weight: 800;
-  font-size: 1.25em;
-}
-
-a:hover {
-  color: #f87c44;
-  transition: all ease 0.4s;
-}
+@media (max-width: 570px) {}

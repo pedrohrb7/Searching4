@@ -1,34 +1,12 @@
 import React from "react";
 
-//import "./About.css";
+import "./About.css";                                
+//import Header from "../../components/Header";
+
 import Computerimg from "../../images/computerimg.png";
 import BackgroundCard from "../../images/background-card.jpg";
-import Mirela from "../../images/mirela-profile.png";
-import Pedro from "../../images/pedro-profile.jpg";
-import Rafael from "../../images/rafael-profile.jpg";
-import Thiago from "../../images/user-img.svg";
 
 export default function About() {
-  function mirela() {
-    var cardMirela = document.querySelector("div.mirela");
-    cardMirela.classList.toggle("fechar");
-  }
-
-  function pedro() {
-    var cardPedro = document.querySelector("div.pedro");
-    cardPedro.classList.toggle("fechar");
-  }
-
-  function rafael() {
-    var cardRafael = document.querySelector("div.rafael");
-    cardRafael.classList.toggle("fechar");
-  }
-
-  function thiago() {
-    var cardThiago = document.querySelector("div.thiago");
-    cardThiago.classList.toggle("fechar");
-  }
-
   return (
     <div className="estilo-geral">
       <div className="texto-sobre">
@@ -69,62 +47,6 @@ export default function About() {
       <div className="equipe" id="equipe">
         <h1 className="título"> Nossa Equipe</h1>
         <div className="container">
-          <div className="menu" id="menu-perfil">
-            <div className="mini-card">
-              <img
-                src={Mirela}
-                alt="imagem perfil Mirela"
-                className="img-perfil-icone"
-              />
-              <p>Mirela De Giuli</p>
-              <a className="btn" onClick={mirela}>
-                Saiba mais
-              </a>
-            </div>
-
-            <div className="mini-card">
-              <div>
-                <img
-                  src={Pedro}
-                  alt="imagem perfil Pedro"
-                  className="img-perfil-icone"
-                />
-                <p>Pedro H.R. Borges</p>
-                <a className="btn" onClick={pedro}>
-                  Saiba mais
-                </a>
-              </div>
-            </div>
-
-            <div className="mini-card">
-              <div>
-                <img
-                  src={Rafael}
-                  alt="imagem perfil Rafael"
-                  className="img-perfil-icone"
-                />
-                <p>Rafael Rodrigues</p>
-                <a className="btn" onClick={rafael}>
-                  Saiba mais
-                </a>
-              </div>
-            </div>
-
-            <div className="mini-card">
-              <div>
-                <img
-                  src={Thiago}
-                  alt="imagem perfil Thiago"
-                  className="img-perfil-icone"
-                />
-                <p>Thiago Dutra</p>
-                <a className="btn" onClick={thiago}>
-                  Saiba mais
-                </a>
-              </div>
-            </div>
-          </div>
-
           <div className="equipe-conteudo" id="equipe_conteudo">
             <div className="fechar mirela">
               <div className="card">
@@ -133,11 +55,7 @@ export default function About() {
                   alt="background card"
                   className="card-img"
                 />
-                <img
-                  src={Mirela}
-                  alt="imagem perfil mirela"
-                  className="img-perfil-sobre"
-                />
+                <img alt="imagem perfil mirela" className="img-perfil-sobre" />
 
                 <h2>Mirela De Giuli</h2>
                 <p className="introducao">
@@ -181,11 +99,7 @@ export default function About() {
                   alt="background card"
                   className="card-img"
                 />
-                <img
-                  src={Pedro}
-                  alt="imagem perfil pedro"
-                  className="img-perfil-sobre"
-                />
+                <img alt="imagem perfil pedro" className="img-perfil-sobre" />
                 <h2>Pedro H.R. Borges</h2>
                 <p className="introducao">
                   Opa! Sou Pedro, sou desenvolvedor front-end jr e acredito que
@@ -227,11 +141,7 @@ export default function About() {
                   alt="background card"
                   className="card-img"
                 />
-                <img
-                  src={Rafael}
-                  alt="imagem perfil rafael"
-                  className="img-perfil-sobre"
-                />
+                <img alt="imagem perfil rafael" className="img-perfil-sobre" />
                 <h2>Rafael Rodrigues</h2>
                 <p className="introducao">
                   Oi, sou o Rafael, desenvolvedor front-end entusiasta por
