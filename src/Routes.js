@@ -5,13 +5,13 @@ import HomeOld from "./pages/Home/HomeOld";
 import About from "./pages/About";
 import Notfound from "./pages/Notfound";
 
-import Home2 from "./pages/Home/Home2";
+import Home from "./pages/Home";
 
 export default () => {
   return (
     <Switch>
       <Route exact path="/">
-        <HomeOld />
+        <Home />
       </Route>
 
       <Route exact path="/about">
