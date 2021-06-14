@@ -1,27 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   AppBar,
   Toolbar,
   Typography,
   Container,
+  Grid,
 } from "@material-ui/core";
-import SearchSharp from "@material-ui/icons/SearchSharp";
-
 import { useStyles } from "./style";
+
 import SearchField from "../../components/SearchField";
+import Cards from "../../components/Cards";
+import { getInitialSearch } from "../../helpers/fakeService";
 
 const Home = () => {
   const styleClass = useStyles();
+  const [initialValue, setInitialValue] = useState([]);
+
+  useEffect(() => {
+    getInitialSearch().then((result) => {
+      setInitialValue(result);
+    });
+  }, []);
 
   return (
     <div className={styleClass.root}>
-      <AppBar position="static">
-        <Container container maxWidth="lg">
+      <AppBar position="static" className={styleClass.appBar}>
+        <Container maxWidth="lg">
           <Toolbar>
             <Typography className={styleClass.title} variant="h6" noWrap>
-              Searching
-              <SearchSharp className={styleClass.logo} />4
+              Searching4
             </Typography>
             <div className={styleClass.search}>
               <SearchField />
@@ -31,7 +39,7 @@ const Home = () => {
       </AppBar>
       <main>
         <div className={styleClass.project}>
-          <Container maxWidth="sm">
+          <Container maxWidth="md">
             <Typography
               component="h1"
               variant="h3"
@@ -48,10 +56,18 @@ const Home = () => {
               paragraph
             >
               This is a project made with ReactJS using Twitter API to search
-              something has been tweeted or retweeted. See more about on --&gt; 
+              something has been tweeted or retweeted. <br />
+              Get the code on --&gt;{" "}
             </Typography>
           </Container>
         </div>
+        <Container className={styleClass.cardGrid} maxWidth="lg">
+          <Grid container spacing={3}>
+            <Grid item  xs={12} sm={6} md={4}>
+              <Cards initial={initialValue} />
+            </Grid>
+          </Grid>
+        </Container>
       </main>
     </div>
   );

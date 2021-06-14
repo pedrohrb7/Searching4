@@ -26,4 +26,5 @@ Notes.txt
 #myPreferences
 /src/pages/OldPages
 /src/helpers/fakeService.js
+/src/components/Team/
 localData.json

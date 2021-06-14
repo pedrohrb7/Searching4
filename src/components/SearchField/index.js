@@ -27,18 +27,13 @@ const SearchField = (props) => {
         <InputBase
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="type something…"
+          placeholder="search…"
           classes={{
             root: styleClass.inputRoot,
             input: styleClass.inputInput,
           }}
           inputProps={{ "aria-label": "search" }}
         />
-          className="search-field"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button>Search</button>
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 
-const Slide = () => {
+const Slide = (props) => {
+  const searched = props;
   return <div></div>;
 };
 

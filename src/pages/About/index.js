@@ -1,9 +1,8 @@
 import React from "react";
 
-import "./About.css";                                
+// import "./About.css";                                
 //import Header from "../../components/Header";
 
-import Computerimg from "../../images/computerimg.png";
 import BackgroundCard from "../../images/background-card.jpg";
 
 export default function About() {
