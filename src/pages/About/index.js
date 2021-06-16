@@ -38,7 +38,7 @@ export default function About() {
           </div>
 
           <div className="img-sobre">
-            <img alt="" src={Computerimg} />
+            {/* <img alt="" src={Computerimg} /> */}
           </div>
         </div>
       </div>

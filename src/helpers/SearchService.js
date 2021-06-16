@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl =
-"https://cors.bridged.cc/api.twitter.com:443/1.1/search/tweets.json?count=50&q=";
+"https://cors.bridged.cc/api.twitter.com:443/1.1/search/tweets.json?count=48&q=";
 
 export const getInitialSearch = async () => {
   const initialValue = [
@@ -30,7 +30,7 @@ export const getInitialSearch = async () => {
     const res = await api.get(`${baseUrl}${randomValue}`);
     let tweets = res;
     console.log("random search --> ", tweets.data.statuses);
-    return tweets;
+    return tweets.data.statuses;
   } catch (err) {
     console.log("Algo ocorreu initialSearch: -> " + err);
   }

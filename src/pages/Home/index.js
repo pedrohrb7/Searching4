@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
 
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Container,
-  Grid,
-} from "@material-ui/core";
+import { Typography, Container, LinearProgress } from "@material-ui/core";
 import { useStyles } from "./style";
 
-import SearchField from "../../components/SearchField";
+import Header from "../../components/Header";
 import Cards from "../../components/Cards";
+
 import { getInitialSearch } from "../../helpers/fakeService";
 
 const Home = () => {
   const styleClass = useStyles();
   const [initialValue, setInitialValue] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getInitialSearch().then((result) => {
@@ -25,18 +21,9 @@ const Home = () => {
 
   return (
     <div className={styleClass.root}>
-      <AppBar position="static" className={styleClass.appBar}>
-        <Container maxWidth="lg">
-          <Toolbar>
-            <Typography className={styleClass.title} variant="h6" noWrap>
-              Searching4
-            </Typography>
-            <div className={styleClass.search}>
-              <SearchField />
-            </div>
-          </Toolbar>
-        </Container>
-      </AppBar>
+      <header>
+        <Header />
+      </header>
       <main>
         <div className={styleClass.project}>
           <Container maxWidth="md">
@@ -61,13 +48,13 @@ const Home = () => {
             </Typography>
           </Container>
         </div>
-        <Container className={styleClass.cardGrid} maxWidth="lg">
-          <Grid container spacing={3}>
-            <Grid item  xs={12} sm={6} md={4}>
-              <Cards initial={initialValue} />
-            </Grid>
-          </Grid>
-        </Container>
+        {loading ? (
+          <LinearProgress color="secondary" />
+        ) : (
+          <Container className={styleClass.cardGrid} maxWidth="lg">
+            <Cards initial={initialValue} />
+          </Container>
+        )}
       </main>
     </div>
   );
