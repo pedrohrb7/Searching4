@@ -47,7 +47,7 @@ Why ? Because if I change my key this one (and this project) will stop work
 
 ### `Team`
 
-Who did this project ?
+Who made this project ?
 
 [Mirella De Giuli](https://github.com/mirelagiuli)
 
@@ -56,6 +56,10 @@ Who did this project ?
 [Pedro Borges](https://github.com/pedrohrb7/)
 
 #### `TODO`
+
+- [x] Refactor layout
+
+- [x] Refactor communication with Twitter API
 
 - [x] Start home page searching something
 
@@ -72,6 +76,8 @@ Who did this project ?
 - [] Choose the number of cards in home page
 
 - [] Format date in card header
+
+- [] Hide menu in mobile access
 
 ---
 
