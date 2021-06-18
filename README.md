@@ -63,21 +63,21 @@ Who made this project ?
 
 - [x] Start home page searching something
 
-- [] Filter tweets by language
+- [ ]  Filter tweets by language
 
-- [] Filter tweets with images or not
+- [ ] Filter tweets with images or not
 
-- [] Add link to the post
+- [ ] Add link to the post
 
-- [] Add login with twitter account
+- [ ] Add login with twitter account
 
-- [] Add pagination
+- [ ] Add pagination
 
-- [] Choose the number of cards in home page
+- [ ] Choose the number of cards in home page
 
-- [] Format date in card header
+- [ ] Format date in card header
 
-- [] Hide menu in mobile access
+- [ ] Hide menu in mobile access
 
 ---
 
