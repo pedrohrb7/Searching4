@@ -8,12 +8,17 @@ export const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     display: "none",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("xs")]: {
       display: "block",
     },
   },
 
-  search: {
+  menu: {
+    color: "white",
+    border: "1px solid white",
+  },
+
+  toolBarSearch: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.black, 0.15),

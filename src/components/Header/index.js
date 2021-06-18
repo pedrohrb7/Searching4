@@ -1,6 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  Button,
+  Container,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 
 import { useStyles } from "./style";
 
@@ -12,11 +19,19 @@ const Header = () => {
   return (
     <AppBar position="static" className={styleClass.appBar}>
       <Container maxWidth="lg">
-        <Toolbar>
-          <Typography className={styleClass.title} variant="h6" noWrap>
+        <Toolbar component="nav">
+          <Typography className={styleClass.title} variant="h5">
             Searching4
           </Typography>
-          <div className={styleClass.search}>
+          <Link to="/about">
+            <Button variant="outlined" className={styleClass.menu}>
+              About
+            </Button>
+          </Link>
+        </Toolbar>
+        <hr />
+        <Toolbar>
+          <div className={styleClass.toolBarSearch}>
             <SearchField />
           </div>
         </Toolbar>

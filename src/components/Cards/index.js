@@ -2,7 +2,7 @@ import React from "react";
 
 import {
   Grid,
-  Button,
+  Link,
   Typography,
   IconButton,
   Avatar,
@@ -11,7 +11,6 @@ import {
   CardContent,
   CardMedia,
   CardHeader,
-  Tooltip,
 } from "@material-ui/core";
 import VerifiedUserSharpIcon from "@material-ui/icons/VerifiedUserSharp";
 
@@ -27,10 +26,9 @@ const Cards = (props) => {
       <Grid container spacing={2}>
         {values &&
           values.map((value) => (
-            <Grid  key={value.id} item xs={12} sm={6} md={4} lg={3}>
+            <Grid key={value.id} item xs={12} sm={6} md={4} lg={3}>
               <Card className={styleClass.card}>
                 <CardHeader
-                 
                   avatar={
                     <Avatar
                       alt={value.user.name}
@@ -40,7 +38,7 @@ const Cards = (props) => {
                   action={
                     <IconButton aria-label="verified">
                       {value.user.verified ? (
-                        <VerifiedUserSharpIcon color="primary" />
+                        <VerifiedUserSharpIcon color="secondary" />
                       ) : (
                         <VerifiedUserSharpIcon />
                       )}
@@ -49,7 +47,7 @@ const Cards = (props) => {
                   title={`${value.user.name} - @${value.user.screen_name}`}
                   subheader={value.created_at}
                 />
-                {value.user.profile_banner_url ? (
+
                   <CardMedia
                     className={styleClass.media}
                     image={value.user.profile_banner_url}
@@ -58,6 +56,7 @@ const Cards = (props) => {
                 ) : (
                   ""
                 )}
+
                 <CardContent>
                   <Typography
                     variant="body2"

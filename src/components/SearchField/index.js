@@ -6,15 +6,15 @@ import SearchIcon from "@material-ui/icons/Search";
 import { InputBase } from "@material-ui/core";
 import { useStyles } from "./style";
 
-const SearchField = (props) => {
+const SearchField = () => {
   const [search, setSearch] = useState("");
-  const tweet = props;
 
   const styleClass = useStyles();
 
   const onSearch = (e) => {
     e.preventDefault();
-    SearchService(tweet);
+    console.log("Valor pesquisado > ", search);
+    SearchService(search);
     setSearch("");
   };
 
@@ -27,7 +27,7 @@ const SearchField = (props) => {
         <InputBase
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="search…"
+          placeholder="search..."
           classes={{
             root: styleClass.inputRoot,
             input: styleClass.inputInput,
