@@ -18,8 +18,8 @@ import { useStyles } from "./style";
 
 const Cards = (props) => {
   const styleClass = useStyles();
-  const values = props.initial;
-  // console.log("PROPS --> ", values);
+  const values = props.data;
+  console.log("props value --> ", props);
 
   return (
     <div>
@@ -48,9 +48,10 @@ const Cards = (props) => {
                   subheader={value.created_at}
                 />
 
+                {value.entities.urls.expanded_url ? (
                   <CardMedia
                     className={styleClass.media}
-                    image={value.user.profile_banner_url}
+                    image={value.entities.urls.expanded_url}
                     title={value.user.screen_name}
                   />
                 ) : (
@@ -68,11 +69,13 @@ const Cards = (props) => {
                 </CardContent>
 
                 <CardActions disableSpacing>
-                  <Tooltip enterDelay={800} leaveDelay={500} title="Soon">
-                    <Button size="small" color="secondary">
+                  {value.entities.urls ? (
+                    <Link href={value.entities.urls.expanded_url}>
                       See More
-                    </Button>
-                  </Tooltip>
+                    </Link>
+                  ) : (
+                    " "
+                  )}
                 </CardActions>
               </Card>
             </Grid>

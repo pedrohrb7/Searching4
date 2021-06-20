@@ -6,16 +6,39 @@ import { useStyles } from "./style";
 import Header from "../../components/Header";
 import Cards from "../../components/Cards";
 
-import { getInitialSearch } from "../../helpers/fakeService";
+import { SearchService } from "../../helpers/SearchService";
 
 const Home = () => {
   const styleClass = useStyles();
-  const [initialValue, setInitialValue] = useState([]);
+  const [initialRandom, setInitialRandom] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const getInitialSearch = () => {
+    const initialRandomValue = [
+      "politic",
+      "sports",
+      "science",
+      "technology",
+      "health",
+      "history",
+    ];
+
+    const randomValue =
+      initialRandomValue[Math.floor(Math.random() * initialRandomValue.length)];
+    //console.log("random value --> ", randomValue);
+
+    return randomValue;
+  };
+
+  const randomSearch = getInitialSearch();
+
   useEffect(() => {
-    getInitialSearch().then((result) => {
-      setInitialValue(result);
+    SearchService().then((result) => {
+      if (result > 0) {
+        setLoading(false);
+      }
+      console.log("valor retornado no result --> ", result)
+      setInitialRandom(result);
     });
   }, []);
 
@@ -52,7 +75,11 @@ const Home = () => {
           <LinearProgress color="secondary" />
         ) : (
           <Container className={styleClass.cardGrid} maxWidth="lg">
-            <Cards initial={initialValue} />
+            {console.log(
+              "Valor aleatorio passado via props -- ",
+              initialRandom
+            )}
+            <Cards data={initialRandom} />
           </Container>
         )}
       </main>

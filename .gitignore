@@ -28,3 +28,4 @@ Notes.txt
 /src/helpers/fakeService.js
 /src/components/Team/
 localData.json
+.env
