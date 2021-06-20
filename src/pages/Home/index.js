@@ -25,7 +25,7 @@ const Home = () => {
 
     const randomValue =
       initialRandomValue[Math.floor(Math.random() * initialRandomValue.length)];
-    //console.log("random value --> ", randomValue);
+    console.log("random value --> ", randomValue);
 
     return randomValue;
   };
