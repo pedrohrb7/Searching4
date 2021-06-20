@@ -33,7 +33,7 @@ const Home = () => {
   const randomSearch = getInitialSearch();
 
   useEffect(() => {
-    SearchService().then((result) => {
+    SearchService(randomSearch).then((result) => {
       if (result > 0) {
         setLoading(false);
       }
