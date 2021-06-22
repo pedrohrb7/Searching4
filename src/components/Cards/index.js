@@ -38,7 +38,7 @@ const Cards = (props) => {
                   action={
                     <IconButton aria-label="verified">
                       {value.user.verified ? (
-                        <VerifiedUserSharpIcon color="secondary" />
+                        <VerifiedUserSharpIcon color="primary" />
                       ) : (
                         <VerifiedUserSharpIcon />
                       )}
@@ -72,6 +72,7 @@ const Cards = (props) => {
                   <Button
                     href={`https://twitter.com/${value.user.screen_name}/status/${value.id_str}`}
                     target="_blank"
+                    color="primary"
                   >
                     See More
                   </Button>
