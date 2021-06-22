@@ -62,9 +62,9 @@ Who made this project ?
 
 - [x] Start home page searching something
 
-- [ ] Add link to the user profile
+- [x] Add link to the post
 
-- [ ] Add link to the post
+- [ ] Add link to the user profile
 
 - [ ]  Filter tweets by language
 

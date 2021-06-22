@@ -69,13 +69,12 @@ const Cards = (props) => {
                 </CardContent>
 
                 <CardActions disableSpacing>
-                  {value.entities.urls ? (
-                    <Button href={`${value.entities.urls.url}`}>
-                      See More
-                    </Button>
-                  ) : (
-                    " "
-                  )}
+                  <Button
+                    href={`https://twitter.com/${value.user.screen_name}/status/${value.id_str}`}
+                    target="_blank"
+                  >
+                    See More
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>
