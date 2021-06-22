@@ -9,7 +9,7 @@ Our app consists in a web application where you can search for a tweet typing a 
 The home page will start the application searching a word pre configured at 'getInitialSearch'.
 
 #### `Details`:
-- isUserVerified = true - verified icon get secondary(Material-Ui) color
+- isUserVerified = true - verified icon get primary(Material-Ui) color
 - Button 'See More' refers to original post not to the retweeted post
 
 ### `About API`
