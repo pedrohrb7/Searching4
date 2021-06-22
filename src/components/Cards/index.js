@@ -2,7 +2,7 @@ import React from "react";
 
 import {
   Grid,
-  Link,
+  Button,
   Typography,
   IconButton,
   Avatar,
@@ -19,7 +19,7 @@ import { useStyles } from "./style";
 const Cards = (props) => {
   const styleClass = useStyles();
   const values = props.data;
-  console.log("props value --> ", props);
+  //console.log("props value --> ", props);
 
   return (
     <div>
@@ -70,9 +70,9 @@ const Cards = (props) => {
 
                 <CardActions disableSpacing>
                   {value.entities.urls ? (
-                    <Link href={value.entities.urls.expanded_url}>
+                    <Button href={`${value.entities.urls.url}`}>
                       See More
-                    </Link>
+                    </Button>
                   ) : (
                     " "
                   )}

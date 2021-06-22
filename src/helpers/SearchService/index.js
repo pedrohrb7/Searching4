@@ -19,7 +19,7 @@ export const SearchService = async (props) => {
     const res = await api.get(`${baseUrl}${tweet}`);
     let tweets = res;
     console.log("response data --> ", tweets.data.statuses);
-    return tweets.data.status;
+    return tweets.data.statuses;
   } catch (err) {
     console.log("something happened: -> " + err);
   }

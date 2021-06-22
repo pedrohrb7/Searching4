@@ -30,14 +30,12 @@ const Home = () => {
     return randomValue;
   };
 
-  const randomSearch = getInitialSearch();
-
   useEffect(() => {
+    const randomSearch = getInitialSearch();
     SearchService(randomSearch).then((result) => {
-      if (result > 0) {
+      if (result !== " ") {
         setLoading(false);
       }
-      console.log("valor retornado no result --> ", result)
       setInitialRandom(result);
     });
   }, []);
@@ -57,7 +55,7 @@ const Home = () => {
               color="textPrimary"
               gutterBottom
             >
-              Searching 4Four
+              Searching4
             </Typography>
             <Typography
               variant="h6"
@@ -75,10 +73,6 @@ const Home = () => {
           <LinearProgress color="secondary" />
         ) : (
           <Container className={styleClass.cardGrid} maxWidth="lg">
-            {console.log(
-              "Valor aleatorio passado via props -- ",
-              initialRandom
-            )}
             <Cards data={initialRandom} />
           </Container>
         )}

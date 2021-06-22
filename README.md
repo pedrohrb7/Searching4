@@ -11,7 +11,7 @@ The home page will start the application searching a word pre configured at 'get
 
 All data showed in our web app come from [Twitter API](https://developer.twitter.com/en/docs)
 
-## `Download and run`
+### `Download and run`
 
 First, download the project
 
@@ -41,9 +41,8 @@ Now you should be able to access the home page [http://localhost:3000](http://lo
 
 ### `Attention Points`
 
-**You should create your own access key and use for your purpose**
-
-Why ? Because if I change my key this one (and this project) will stop work
+**You should create your own access key at Twitter Develop website**
+After create your key copy and paste in the .env file
 
 ### `Team`
 
@@ -55,7 +54,7 @@ Who made this project ?
 
 [Pedro Borges](https://github.com/pedrohrb7/)
 
-#### `TODO`
+### `TODO`
 
 - [x] Refactor layout
 
@@ -63,19 +62,21 @@ Who made this project ?
 
 - [x] Start home page searching something
 
+- [ ] Add link to the user profile
+
+- [ ] Add link to the post
+
 - [ ]  Filter tweets by language
 
 - [ ] Filter tweets with images or not
 
-- [ ] Add link to the post
+- [ ] Add pagination
+
+- [ ] Format date in card header
 
 - [ ] Add login with twitter account
 
-- [ ] Add pagination
-
 - [ ] Choose the number of cards in home page
-
-- [ ] Format date in card header
 
 - [ ] Hide menu in mobile access
 
