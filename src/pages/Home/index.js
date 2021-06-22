@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Typography, Container, LinearProgress } from "@material-ui/core";
+import { Typography, Container, LinearProgress, Link } from "@material-ui/core";
 import { useStyles } from "./style";
 
 import Header from "../../components/Header";
@@ -66,6 +66,7 @@ const Home = () => {
               This is a project made with ReactJS using Twitter API to search
               something has been tweeted or retweeted. <br />
               Get the code on --&gt;{" "}
+              <Link href="https://github.com/pedrohrb7/Searching4">Github</Link>
             </Typography>
           </Container>
         </div>
