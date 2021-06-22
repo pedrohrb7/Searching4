@@ -5,7 +5,12 @@ A project made with the purpose to practice and study more about ReacJS. The fir
 ### `About the project`
 
 Our app consists in a web application where you can search for a tweet typing a word. For example, if you type "reactjs" you will get a list(array) of posts with this term in specific as result.
+
 The home page will start the application searching a word pre configured at 'getInitialSearch'.
+
+#### `Details`:
+- isUserVerified = true - verified icon get secondary(Material-Ui) color
+- Button 'See More' refers to original post not to the retweeted post
 
 ### `About API`
 
@@ -42,6 +47,7 @@ Now you should be able to access the home page [http://localhost:3000](http://lo
 ### `Attention Points`
 
 **You should create your own access key at Twitter Develop website**
+
 After create your key copy and paste in the .env file
 
 ### `Team`
