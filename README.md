@@ -2,6 +2,9 @@
 
 A project made with the purpose to practice and study more about ReacJS. The first version was created by 4Front group for study during [NewTab](https://newtab.academy/) training.
 
+### `LiveDemo`
+
+[Live](http://searching4.s3-website-sa-east-1.amazonaws.com/)
 ### `About the project`
 
 Our app consists in a web application where you can search for a tweet typing a word. For example, if you type "reactjs" you will get a list(array) of posts with this term in specific as result.
