@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { SearchService } from "../../helpers/SearchService";
+import { SearchService } from "../../helpers";
 
 import SearchIcon from "@material-ui/icons/Search";
 import { InputBase } from "@material-ui/core";

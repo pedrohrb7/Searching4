@@ -6,7 +6,7 @@ import { useStyles } from "./style";
 import Header from "../../components/Header";
 import Cards from "../../components/Cards";
 
-import { SearchService } from "../../helpers/SearchService";
+import { SearchService } from "../../helpers";
 
 const Home = () => {
   const styleClass = useStyles();

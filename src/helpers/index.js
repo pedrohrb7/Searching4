@@ -24,3 +24,24 @@ export const SearchService = async (props) => {
     console.log("something happened: -> " + err);
   }
 };
+
+export const TeamService = async () => {
+  const teamUrl = "https://pedrohrb7.github.io/searching4-team/team.json";
+
+  try {
+    const api = axios.create({
+      teamUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const res = await api.get(teamUrl);
+    let info = res;
+    console.log("response team --> ", info.data.team);
+    return info.data.team;
+  } catch (err) {
+    console.log("something happened: -> " + err);
+  }
+};
