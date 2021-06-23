@@ -10,7 +10,7 @@ The home page will start the application searching a word pre configured at 'get
 
 #### `Details`:
 - isUserVerified = true - verified icon get primary(Material-Ui) color
-- Button 'See More' refers to original post not to the retweeted post
+- Button 'See More' refers to the original post not to the retweeted post
 
 ### `About API`
 
