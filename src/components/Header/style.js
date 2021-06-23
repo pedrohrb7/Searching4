@@ -16,6 +16,7 @@ export const useStyles = makeStyles((theme) => ({
   menu: {
     color: "white",
     border: "1px solid white",
+    marginLeft: 15,
   },
 
   toolBarSearch: {
@@ -26,12 +27,10 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: fade(theme.palette.common.black, 0.25),
       cursor: "pointer",
     },
-    marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "auto",
+      margin: theme.spacing(3),
     },
   },
 }));
