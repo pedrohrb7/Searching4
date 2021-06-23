@@ -2,19 +2,22 @@ import React, { useEffect, useState } from "react";
 
 import {
   Avatar,
-  Button,
   Card,
   CardMedia,
   CardActions,
   CardActionArea,
   CardContent,
+  CircularProgress,
   Container,
   Grid,
+  IconButton,
   Typography,
-  CircularProgress,
   Link,
 } from "@material-ui/core";
 import { useStyles } from "./style";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import MailOutlineSharp from "@material-ui/icons/MailOutlineSharp";
 
 import Header from "../../components/Header";
 
@@ -64,53 +67,81 @@ export default function About() {
             da Cocreare Academy, que teve como objetivo o desenvolvimento de um
             site responsivo integrado com a API da rede social Twitter.
           </Typography>
-          <Typography variant="h4" className={styleClass.title}>
-            Nossa Equipe
-          </Typography>
-          {!loading ? (
-            <Grid container>
-              <Grid item lg={4}>
-                <Card>
-                  <CardActionArea>
-                    <CardMedia
-                      className={styleClass.media}
-                      image={BackgroundCard}
-                      title="Contemplative Reptile"
-                    />
-                    <Avatar aria-label="recipe" className={styleClass.avatar} />
 
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Share
-                    </Button>
-                    <Button size="small" color="primary">
-                      Learn More
-                    </Button>
-                  </CardActions>
-                </Card>
+          <Container>
+            <Typography variant="h4" className={styleClass.title} gutterBottom>
+              Nossa Equipe
+            </Typography>
+            {loading ? (
+              <CircularProgress color="secondary" />
+            ) : (
+              <Grid container spacing={2}>
+                {team &&
+                  team.map((team) => (
+                    <Grid item lg={4}>
+                      <Card>
+                        <CardActionArea>
+                          <CardMedia
+                            className={styleClass.media}
+                            image={BackgroundCard}
+                            title={`${team.name}`}
+                          />
+                          <CardContent>
+                            <Avatar
+                              className={styleClass.avatar}
+                              src={team.picture}
+                            />
+                            <Typography
+                              gutterBottom
+                              variant="h5"
+                              component="h2"
+                              className={styleClass.memberName}
+                            >
+                              {team.name}
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              color="textPrimary"
+                              component="p"
+                            >
+                              {team.intro}
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                        <CardActions className={styleClass.cardActions}>
+                          <Link href={team.github} target="_blank">
+                            <IconButton
+                              color="primary"
+                              aria-label="add to shopping cart"
+                            >
+                              <GitHubIcon fontSize="large" />
+                            </IconButton>
+                          </Link>
+                          <Link href={team.linkedin} target="_blank">
+                            <IconButton
+                              color="primary"
+                              aria-label="add to shopping cart"
+                            >
+                              <LinkedInIcon fontSize="large" />
+                            </IconButton>
+                          </Link>
+                          <Link href={`mailto:${team.email}`}>
+                            <IconButton
+                              color="primary"
+                              aria-label="add to shopping cart"
+                            >
+                              <MailOutlineSharp fontSize="large" />
+                            </IconButton>
+                          </Link>
+                        </CardActions>
+                      </Card>
+                    </Grid>
+                  ))}
               </Grid>
-            </Grid>
-          ) : (
-            <CircularProgress color="secondary" />
-          )}
+            )}
+          </Container>
         </Container>
       </main>
-      {/* <img src={BackgroundCard} alt="background card" className="card-img" /> */}
     </div>
   );
 }
