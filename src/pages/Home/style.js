@@ -19,17 +19,12 @@ export const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(8, 0, 6),
   },
 
+  cardContainer: {
+    backgroundColor: "#1c273a",
+  },
+
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
-  },
-
-  footer: {
-    padding: theme.spacing(3, 2),
-    marginTop: "auto",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[200]
-        : theme.palette.grey[800],
   },
 }));

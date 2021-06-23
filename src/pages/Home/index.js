@@ -70,13 +70,15 @@ const Home = () => {
             </Typography>
           </Container>
         </div>
-        {loading ? (
-          <LinearProgress color="secondary" />
-        ) : (
-          <Container className={styleClass.cardGrid} maxWidth="lg">
-            <Cards data={initialRandom} />
-          </Container>
-        )}
+        <div className={styleClass.cardContainer}>
+          {loading ? (
+            <LinearProgress color="secondary" />
+          ) : (
+            <Container className={styleClass.cardGrid} maxWidth="lg">
+              <Cards data={initialRandom} />
+            </Container>
+          )}
+        </div>
       </main>
     </div>
   );
