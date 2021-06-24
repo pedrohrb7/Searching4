@@ -75,7 +75,7 @@ Who made this project ?
 
 - [ ] Add link to the user profile
 
-- [ ]  Filter tweets by language
+- [ ] Filter tweets by language
 
 - [ ] Filter tweets with images or not
 
@@ -88,6 +88,15 @@ Who made this project ?
 - [ ] Choose the number of cards in home page
 
 - [ ] Hide menu in mobile access
+
+---
+
+### `Tecs`
+
+https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white
+https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 
 ---
 
