@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from "react";
 
-import { Typography, Container, LinearProgress, Link } from "@material-ui/core";
+import {
+  AppBar,
+  InputBase,
+  Toolbar,
+  Typography,
+  Container,
+  LinearProgress,
+  Link,
+} from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
+
+import { SearchService } from "../../helpers";
 import { useStyles } from "./style";
 
 import Header from "../../components/Header";
 import Cards from "../../components/Cards";
 
-import { SearchService } from "../../helpers";
-
 const Home = () => {
   const styleClass = useStyles();
-  const [initialRandom, setInitialRandom] = useState([]);
+
+  const [value, setValue] = useState([]);
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
   const getInitialSearch = () => {
@@ -30,13 +41,20 @@ const Home = () => {
     return randomValue;
   };
 
+  const onSearch = (e) => {
+    e.preventDefault();
+    console.log("Valor pesquisado > ", search);
+    SearchService(search);
+    setSearch("");
+  };
+
   useEffect(() => {
     const randomSearch = getInitialSearch();
     SearchService(randomSearch).then((result) => {
       if (result !== " ") {
         setLoading(false);
       }
-      setInitialRandom(result);
+      setValue(result);
     });
   }, []);
 
@@ -44,6 +62,30 @@ const Home = () => {
     <div className={styleClass.root}>
       <header>
         <Header />
+        <AppBar position="static" className={styleClass.bgColor}>
+          <Container maxWidth="lg">
+            <hr />
+            <Toolbar>
+              <div className={styleClass.toolBarSearch}>
+                <form onSubmit={onSearch}>
+                  <div className={styleClass.searchIcon}>
+                    <SearchIcon />
+                  </div>
+                  <InputBase
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="search..."
+                    classes={{
+                      root: styleClass.inputRoot,
+                      input: styleClass.inputInput,
+                    }}
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                </form>
+              </div>
+            </Toolbar>
+          </Container>
+        </AppBar>
       </header>
       <main>
         <div className={styleClass.project}>
@@ -70,12 +112,12 @@ const Home = () => {
             </Typography>
           </Container>
         </div>
-        <div className={styleClass.cardContainer}>
+        <div className={styleClass.bgColor}>
           {loading ? (
             <LinearProgress color="secondary" />
           ) : (
             <Container className={styleClass.cardGrid} maxWidth="lg">
-              <Cards data={initialRandom} />
+              <Cards data={value} />
             </Container>
           )}
         </div>

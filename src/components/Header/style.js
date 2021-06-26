@@ -1,7 +1,7 @@
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
-  appBar: {
+  bgColor: {
     backgroundColor: "#1c273a",
   },
 
@@ -17,20 +17,5 @@ export const useStyles = makeStyles((theme) => ({
     color: "white",
     border: "1px solid white",
     marginLeft: 15,
-  },
-
-  toolBarSearch: {
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.black, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.black, 0.25),
-      cursor: "pointer",
-    },
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      margin: theme.spacing(3),
-    },
   },
 }));
