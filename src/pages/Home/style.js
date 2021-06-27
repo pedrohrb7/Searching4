@@ -40,6 +40,7 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       margin: theme.spacing(3),
+      width: "auto",
     },
   },
 

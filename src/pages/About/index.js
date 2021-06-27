@@ -45,32 +45,28 @@ export default function About() {
       <main>
         <Container maxWidth="lg">
           <Typography variant="h2" className={styleClass.title}>
-            Sobre
+            About
           </Typography>
           <Typography paragraph={true}>
-            Somos a <strong>4-Front! </strong>
-            Uma equipe formada por quatro desenvolvedores que estão em busca de
-            novos conhecimentos e desafios profissionais. Cada integrante tem
-            suas habilidades e áreas de especialidade, e unidos formamos um time
-            capacitado para desenvolvimento web completo.
+            We're <strong>4-Front!</strong>A team formed by four developers looking for new
+            knowledge and professional challenges. Each member has their skills
+            and areas of expertise, and together we form a team capable to build web applications.
           </Typography>
           <Typography paragraph={true}>
-            Nossos projetos priorizam a responsividade e a qualidade de
-            interação para que seu site seja acessível nos diferentes
-            dispositivos de seus usuários. Nossos serviços contemplam desde o
-            design da interface até toda a programação Front-End. Fazemos
-            aplicação de HTML, CSS e JavaScript puros, ou com os frameworks
-            Angular e React.
+            Our projects prioritize the responsiveness and quality of
+            interaction with different screen sizes. Our services range from the interface design to all
+            Front-End programming. We do application of pure HTML, CSS and
+            JavaScript, or with Angular and React.
           </Typography>
           <Typography paragraph={true}>
-            Este site é resultado de um dos projetos da Capacitação em Front-end
-            da Cocreare Academy, que teve como objetivo o desenvolvimento de um
-            site responsivo integrado com a API da rede social Twitter.
+            This site is the result of one of the Front-end Training projects of
+            NewTab Academy, which aimed to develop a Responsive website
+            integrated with Twitter social network API.
           </Typography>
 
           <Container>
             <Typography variant="h4" className={styleClass.title} gutterBottom>
-              Nossa Equipe
+              Our Team
             </Typography>
             {loading ? (
               <CircularProgress color="secondary" />

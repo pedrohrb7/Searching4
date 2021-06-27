@@ -44,9 +44,16 @@ const Home = () => {
   const onSearch = (e) => {
     e.preventDefault();
     console.log("Valor pesquisado > ", search);
-    SearchService(search);
+    SearchService(search).then((result) => {
+      if (result !== " ") {
+        setLoading(false);
+      }
+      setValue(result);
+    });
     setSearch("");
   };
+
+  //const refreshSearch = () => {};
 
   useEffect(() => {
     const randomSearch = getInitialSearch();
@@ -65,25 +72,26 @@ const Home = () => {
         <AppBar position="static" className={styleClass.bgColor}>
           <Container maxWidth="lg">
             <hr />
-            <Toolbar>
-              <div className={styleClass.toolBarSearch}>
-                <form onSubmit={onSearch}>
-                  <div className={styleClass.searchIcon}>
-                    <SearchIcon />
-                  </div>
-                  <InputBase
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="search..."
-                    classes={{
-                      root: styleClass.inputRoot,
-                      input: styleClass.inputInput,
-                    }}
-                    inputProps={{ "aria-label": "search" }}
-                  />
-                </form>
-              </div>
-            </Toolbar>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Toolbar>
+                <div className={styleClass.toolBarSearch}>
+                  <form onSubmit={onSearch}>
+                    <div className={styleClass.searchIcon}>
+                      <SearchIcon />
+                    </div>
+                    <InputBase
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      placeholder="search..."
+                      classes={{
+                        root: styleClass.inputRoot,
+                        input: styleClass.inputInput,
+                      }}
+                    />
+                  </form>
+                </div>
+              </Toolbar>
+            </div>
           </Container>
         </AppBar>
       </header>
@@ -107,8 +115,9 @@ const Home = () => {
             >
               This is a project made with ReactJS using Twitter API to search
               something has been tweeted or retweeted. <br />
-              Get the code on --&gt;{" "}
+              Get the code and read more about this project on --&gt;{" "}
               <Link href="https://github.com/pedrohrb7/Searching4">Github</Link>
+              
             </Typography>
           </Container>
         </div>
