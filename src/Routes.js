@@ -15,10 +15,6 @@ export default () => {
       <Route exact path="/about">
         <About />
       </Route>
-
-      <Route>
-        <Notfound />
-      </Route>
     </Switch>
   );
 };
