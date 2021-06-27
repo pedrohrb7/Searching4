@@ -108,7 +108,6 @@ export default function About() {
                           <Link href={team.github} target="_blank">
                             <IconButton
                               color="primary"
-                              aria-label="add to shopping cart"
                             >
                               <GitHubIcon fontSize="large" />
                             </IconButton>
@@ -116,7 +115,6 @@ export default function About() {
                           <Link href={team.linkedin} target="_blank">
                             <IconButton
                               color="primary"
-                              aria-label="add to shopping cart"
                             >
                               <LinkedInIcon fontSize="large" />
                             </IconButton>
@@ -124,7 +122,6 @@ export default function About() {
                           <Link href={`mailto:${team.email}`}>
                             <IconButton
                               color="primary"
-                              aria-label="add to shopping cart"
                             >
                               <MailOutlineSharp fontSize="large" />
                             </IconButton>
