@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import About from "./pages/About";
-import Notfound from "./pages/Notfound";
 
 import Home from "./pages/Home";
 
